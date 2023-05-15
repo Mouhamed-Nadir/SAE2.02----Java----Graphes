@@ -14,7 +14,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IGrapheTest {
-	private final main.java.graphe.core.IGraphe[] graphes = {
+	private final IGraphe[] graphes = {
 			new GrapheLArcs(), new GrapheLAdj(),
 			new GrapheMAdj(), new GrapheHHAdj()
 	};
@@ -49,7 +49,7 @@ class IGrapheTest {
 
 	@Test
 	void exo3_1Maths() {
-		for (main.java.graphe.core.IGraphe g : graphes) {
+		for (IGraphe g : graphes) {
 			g.peupler(g31a); 
 			tester3_1(g);			
 		}
@@ -99,7 +99,7 @@ class IGrapheTest {
 	@Test
 	void petitTestImportation() {
 		for (IGraphe g : graphes)
-			petiteImporation(g, "graphes/orig/g-10-1.txt");
+			petiteImporation(g, "graphes/g-10-1.txt");
 	}
 
 
