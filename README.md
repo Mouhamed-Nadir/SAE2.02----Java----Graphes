@@ -9,5 +9,6 @@
 ### Les classes de graphes codées :
 Nous avons codé les 4 classes de graphes demandés, soient : GrapheLArcs, GrapheLAdj, GrapheMAdj et GrapheHHAdj.
 
-
+### Dijkstra et tests fournis :
+###### Pour GrapheHHAdj
 
