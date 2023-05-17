@@ -29,6 +29,6 @@ Nous avons codé les 4 classes de graphes demandés, soient : GrapheLArcs, Graph
            Après cela, ça devient trop long.
          - tests avec les graphes Full : passe les tests fournis jusqu'au graphe de taille 1001-1 inclus sauf le graphe 
         501-1 et le graphe 5001-1 qui mettent trop de temps à se lancer.
-         - tests avec les graphes Barabasi : echec.
+         - tests avec les graphes Barabasi : 102-1 et 1002 -1 passent.
       
          
