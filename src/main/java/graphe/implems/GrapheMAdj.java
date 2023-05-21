@@ -22,7 +22,6 @@ public class GrapheMAdj implements IGraphe {
         this();
         peupler(graphe);
     }
-
     @Override
     public void ajouterSommet(String noeud) {
         if (contientSommet(noeud))

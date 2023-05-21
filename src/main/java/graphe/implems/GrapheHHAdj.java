@@ -1,20 +1,21 @@
 package main.java.graphe.implems;
 
 import main.java.graphe.core.IGraphe;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GrapheHHAdj implements IGraphe{
+public class GrapheHHAdj implements IGraphe {
     public static final int NO_VALUATION = -1;
     private Map<String, Map<String, Integer>> hhadj;
 
-    public GrapheHHAdj(){
-        hhadj = new HashMap<String, Map<String,Integer>>();
+    public GrapheHHAdj() {
+        hhadj = new HashMap<String, Map<String, Integer>>();
     }
 
-    public GrapheHHAdj(String graphe){
+    public GrapheHHAdj(String graphe) {
         this();
         peupler(graphe);
     }
@@ -22,38 +23,37 @@ public class GrapheHHAdj implements IGraphe{
 
     @Override
     public void ajouterSommet(String noeud) {
-        if(!contientSommet(noeud)){
-            hhadj.put(noeud,new HashMap<String,Integer>());
+        if (!contientSommet(noeud)) {
+            hhadj.put(noeud, new HashMap<String, Integer>());
         }
     }
 
     @Override
     public void ajouterArc(String source, String destination, Integer valeur) {
-        if (valeur < 0 || contientArc(source,destination)){
+        if (valeur < 0 || contientArc(source, destination)) {
             throw new IllegalArgumentException();
         }
 
         ajouterSommet(source);
         ajouterSommet(destination);
-        hhadj.get(source).put(destination,valeur);
+        hhadj.get(source).put(destination, valeur);
     }
 
     @Override
     public void oterSommet(String noeud) {
-        if (contientSommet(noeud)){
+        if (contientSommet(noeud)) {
             hhadj.remove(noeud);
-            for(String sommet : getSommets())
-                if(contientArc(sommet,noeud))
+            for (String sommet : getSommets())
+                if (contientArc(sommet, noeud))
                     hhadj.get(sommet).remove(noeud);
         }
     }
 
     @Override
     public void oterArc(String source, String destination) {
-        if (contientArc(source,destination)){
+        if (contientArc(source, destination)) {
             hhadj.get(source).remove(destination);
-        }
-        else
+        } else
             throw new IllegalArgumentException();
     }
 
@@ -71,7 +71,7 @@ public class GrapheHHAdj implements IGraphe{
 
     @Override
     public int getValuation(String src, String dest) {
-        if(contientArc(src,dest))
+        if (contientArc(src, dest))
             return hhadj.get(src).get(dest);
         return NO_VALUATION;
     }
@@ -89,7 +89,7 @@ public class GrapheHHAdj implements IGraphe{
         return false;
     }
 
-    public String toString(){
+    public String toString() {
         return toAString();
     }
 

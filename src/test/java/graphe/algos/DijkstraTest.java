@@ -6,6 +6,9 @@ import main.java.graphe.IHM.Main;
 import main.java.graphe.algos.DijkstraTools;
 import main.java.graphe.core.IGraphe;
 import main.java.graphe.implems.GrapheHHAdj;
+import main.java.graphe.implems.GrapheLAdj;
+import main.java.graphe.implems.GrapheLArcs;
+import main.java.graphe.implems.GrapheMAdj;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -18,12 +21,10 @@ import static org.junit.jupiter.api.Assertions.*;
 // les sous-repertoires ne sont pas pris en commpte
 // ce qui permet de piocher dedans ce qu'on veut tester
 class DijkstraTest {
-
-
     @Test
     void testerTousLesGraphes() {
         GraphDirectoryImporter importer = new GraphDirectoryImporter(Main.GRAPHES_REP,
-                Main.REPONSES_REP, true, new GrapheHHAdj());
+                Main.REPONSES_REP, true, new GrapheLArcs());
         for (CheminATrouver cat : importer) {
             checkAndTime(cat.getGraph(), cat.getSD_arc().getSource(),
                     cat.getSD_arc().getDestination(), cat.getDistance_attendue());

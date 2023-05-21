@@ -2,6 +2,7 @@ package main.java.graphe.implems;
 
 import main.java.graphe.core.IGraphe;
 import main.java.graphe.core.Arc;
+
 import java.util.*;
 
 public class GrapheLAdj implements IGraphe {
@@ -14,46 +15,47 @@ public class GrapheLAdj implements IGraphe {
         ladj = new HashMap<>();
     }
 
-    public GrapheLAdj(String graphe){
+    public GrapheLAdj(String graphe) {
         this();
         peupler(graphe);
     }
 
     @Override
     public void ajouterSommet(String noeud) {
-        if(!contientSommet(noeud)){
-            ladj.put(noeud,new ArrayList<Arc>());
+        if (!contientSommet(noeud)) {
+            ladj.put(noeud, new ArrayList<Arc>());
         }
     }
 
     @Override
     public void ajouterArc(String source, String destination, Integer valeur) {
-        if (valeur < 0 || contientArc(source,destination)){
+        if (valeur < 0 || contientArc(source, destination)) {
             throw new IllegalArgumentException();
         }
         ajouterSommet(source);
 
         ajouterSommet(destination);
-        Arc arcAjouter = new Arc(source,destination,valeur);
+        Arc arcAjouter = new Arc(source, destination, valeur);
         ladj.get(source).add(arcAjouter);
     }
 
     @Override
     public void oterSommet(String noeud) {
-        if(!contientSommet(noeud))
+        if (!contientSommet(noeud))
             return;
         ladj.remove(noeud);
-        for(String sommet : getSommets()){
-            Arc arcCompare = new Arc(sommet,noeud,VALUEARCCOMPARE);
-            ladj.get(sommet).removeIf(a -> a.equals(arcCompare));}
+        for (String sommet : getSommets()) {
+            Arc arcCompare = new Arc(sommet, noeud, VALUEARCCOMPARE);
+            ladj.get(sommet).removeIf(a -> a.equals(arcCompare));
+        }
 
     }
 
     @Override
     public void oterArc(String source, String destination) {
-        if (!contientArc(source,destination))
+        if (!contientArc(source, destination))
             throw new IllegalArgumentException();
-        Arc arcCompare = new Arc(source,destination,VALUEARCCOMPARE);
+        Arc arcCompare = new Arc(source, destination, VALUEARCCOMPARE);
         ladj.get(source).removeIf(a -> a.equals(arcCompare));
     }
 
@@ -66,8 +68,8 @@ public class GrapheLAdj implements IGraphe {
     @Override
     public List<String> getSucc(String sommet) {
         List<String> successeurs = new ArrayList<String>();
-        if(contientSommet(sommet)){
-            for(Arc a : ladj.get(sommet)){
+        if (contientSommet(sommet)) {
+            for (Arc a : ladj.get(sommet)) {
                 successeurs.add(a.getDestination());
             }
         }
@@ -76,11 +78,11 @@ public class GrapheLAdj implements IGraphe {
 
     @Override
     public int getValuation(String src, String dest) {
-        if(!contientArc(src,dest))
+        if (!contientArc(src, dest))
             return NO_VALUATION;
         int valuationArc = 0;
-        for(Arc a : ladj.get(src)) {
-            if (a.getDestination().equals(dest)){
+        for (Arc a : ladj.get(src)) {
+            if (a.getDestination().equals(dest)) {
                 valuationArc = a.getValuation();
                 break;
             }

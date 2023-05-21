@@ -95,13 +95,9 @@ class IGrapheTest {
 		assertEquals("5", a.getSource());
 		assertEquals("7", a.getDestination());		
 	}
-	
 	@Test
 	void petitTestImportation() {
 		for (IGraphe g : graphes)
 			petiteImporation(g, "graphes/g-10-1.txt");
 	}
-
-
-
 }
