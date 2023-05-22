@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.*;
 public class Dijkstra {
 
-    public static final int CHEMINSOURCE = 0;
-    public static final int INFINI = -1;
+    private static final int CHEMINSOURCE = 0;
+    private static final int INFINI = -1;
     public static void dijkstra(IGrapheConst graphe, String source, Map<String, Integer> dist, Map<String, String> pred) {
         HashSet<String> sommetsVisites = new HashSet<>();
         HashSet<String> sommetsMarques = new HashSet<>();

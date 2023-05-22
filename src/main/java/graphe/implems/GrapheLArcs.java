@@ -7,10 +7,10 @@ import java.util.*;
 
 public class GrapheLArcs implements IGraphe {
 
-    public static final int NO_VALUATION = -1;
-    public static final int VALUEARCCOMPARE = 0;
-    public static final int VALUEARCFACTICE = 0;
-    public static final String STR_EMPTY = "";
+    private static final int NO_VALUATION = -1;
+    private static final int VALUEARCCOMPARE = 0;
+    private static final int VALUEARCFACTICE = 0;
+    private static final String STR_EMPTY = "";
 
 
     private List<Arc> arcs;

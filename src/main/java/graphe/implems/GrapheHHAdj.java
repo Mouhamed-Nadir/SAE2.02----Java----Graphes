@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GrapheHHAdj implements IGraphe {
-    public static final int NO_VALUATION = -1;
+    private static final int NO_VALUATION = -1;
     private Map<String, Map<String, Integer>> hhadj;
 
     public GrapheHHAdj() {

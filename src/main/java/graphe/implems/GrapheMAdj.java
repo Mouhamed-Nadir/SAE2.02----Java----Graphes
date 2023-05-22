@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 public class GrapheMAdj implements IGraphe {
-    public static final int NOARCVALUE = -1;
-    public static final int PAS_EXTENSION = 1;
+    private static final int NOARCVALUE = -1;
+    private static final int PAS_EXTENSION = 1;
     private int[][] matrice;
     private Map<String, Integer> indices;
 

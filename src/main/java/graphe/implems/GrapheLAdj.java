@@ -7,8 +7,8 @@ import java.util.*;
 
 public class GrapheLAdj implements IGraphe {
     private Map<String, List<Arc>> ladj;
-    public static final int NO_VALUATION = -1;
-    public static final int VALUEARCCOMPARE = 0;
+    private static final int NO_VALUATION = -1;
+    private static final int VALUEARCCOMPARE = 0;
 
 
     public GrapheLAdj() {
